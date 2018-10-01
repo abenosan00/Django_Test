@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+import django_app.viwes as django_app
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('django_app', django_app.index)
 ]
