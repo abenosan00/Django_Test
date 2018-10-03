@@ -1,20 +1,13 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import Friend
+from .forms import HelloForm
 # Create your views here.
 
 def index(request):
-    paramas = {
-        'title':'Hello/index',
-        'msg':'これはテンプレートを利用しています',
-        'goto':'next',
+    data = Friend.objects.all().values()
+    params = {
+        'title':'Hello',
+        'data':data,
     }
-    return render(request, 'hello/index.html',paramas)
-
-
-def next(request):
-    paramas = {
-        'title':'Hello/index',
-        'msg':'これはテンプレートを利用しています',
-        'goto':'index',
-    }
-    return render(request, 'hello/index.html',paramas)
+    return render(request, 'hello/index.html',params)
