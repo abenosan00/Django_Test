@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'hello',
 ]
 
+SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -78,10 +80,10 @@ WSGI_APPLICATION = 'djnago_app.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'Dtest',
+        'NAME': 'abeno',
         'USER':'Abenosan',
         'PASSWORD': 'Abenosan00?',
-        'HOST':'dtest.cqf07wodquwz.ap-northeast-1.rds.amazonaws.com',
+        'HOST':'dtests.cqf07wodquwz.ap-northeast-1.rds.amazonaws.com',
         'PORT':'3306',
     }
 }

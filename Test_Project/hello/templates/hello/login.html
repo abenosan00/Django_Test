@@ -10,6 +10,7 @@
         <h1>{{ title }}</h1>
         <p>{{ data }}</p>
         <p>{{ mesg }}</p>
+        <p>セッションID:{{ session }}</p>
         <form action="{% url 'login' %}" method="POST">
             {% csrf_token %}
             {{ form }}
