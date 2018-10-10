@@ -1,8 +1,8 @@
 from django.shortcuts import render,redirect
 from django.core.paginator import Paginator
 from django.http import HttpResponse
-from .models import user
-from .forms import logins, add_userss
+from .models import user,tweet
+from .forms import logins, add_userss, tweetForm
 
 # Create your views here.
 
@@ -73,3 +73,16 @@ def add_user(request):
     return render(request, 'hello/add_user.html',params)
 
 
+def message(request,page=1):
+    if(request.method == 'POST'):
+        odj = tweet()
+        form = tweetForm(request.POST, instance=obj)
+        form.save()
+    data = tweet.objects.add().reverse()
+    paginator = Paginator(date ,5 )
+    params = {
+        'title':'Message',
+        'form':tweetForm,
+        'data':paginator.get_page(page),
+    }
+    return render(request,'hello/message.html' params)
