@@ -1,5 +1,5 @@
 from django import forms
-from models import user, tweet
+from .models import user, tweet
 
 class HelloForm(forms.Form):
     id = forms.IntegerField(label="ID")
@@ -16,4 +16,4 @@ class add_userss(forms.Form):
 class tweetForm(forms.ModelForm):
     class Meta:
         model = tweet
-        users = ['title','content','user']
+        fields = ['title','content','user']

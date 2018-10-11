@@ -75,14 +75,14 @@ def add_user(request):
 
 def message(request,page=1):
     if(request.method == 'POST'):
-        odj = tweet()
+        obj = tweet()
         form = tweetForm(request.POST, instance=obj)
         form.save()
-    data = tweet.objects.add().reverse()
-    paginator = Paginator(date ,5 )
+    data = tweet.objects.all().reverse()
+    paginator = Paginator(data ,5)
     params = {
         'title':'Message',
         'form':tweetForm,
         'data':paginator.get_page(page),
     }
-    return render(request,'hello/message.html' params)
+    return render(request,'hello/message.html', params)

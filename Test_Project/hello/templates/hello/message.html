@@ -1,10 +1,10 @@
 {% load static %}
-<!DOCTYPE html>
+<!doctype html>
 <html lang='ja'>
     <head>
-        <meta charset="utf-8">
-        <title>{{ title }}</title>
-        <link rel="stylesheet" type="text/css" href="{% static 'hello/css/style.css' %}">
+        <meta charset='utf-8'>
+        <title>hello</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'hello/css/style.css' %}" />
     </head>
     <body>
         <h1>{{ title }}</h1>
@@ -25,14 +25,18 @@
             {% for item in data %}
             <tr>
                 <td>{{item.title}}</td>
-                <td>{{item.friend.name}}</td>
+                <td>{{item.user_id}}</td>
                 <td>{{item.pub_date}}</td>
             </tr>
         {% endfor %}
         </table>
         <div>
             {% if data.has_previous %}
-                <a href="{% url 'massege' %}{{data.previous_page_number}}
+                <a href="{% url 'message' %}{{data.previous_page_number}}">&laquo;prev</a>
+            {% endif %}
+            {% if data.has_next %}
+                <a href="{% url 'message' %}{{data.next_page_number}}">next&raquo;</a>
+            {% endif %}
         </div>
     </body>
 </html>
