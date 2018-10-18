@@ -80,10 +80,10 @@ WSGI_APPLICATION = 'djnago_app.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'abeno',
-        'USER':'Abenosan',
-        'PASSWORD': 'Abenosan00?',
-        'HOST':'dtests.cqf07wodquwz.ap-northeast-1.rds.amazonaws.com',
+        'NAME': 'django_test',
+        'USER':'',
+        'PASSWORD': '',
+        'HOST':'',
         'PORT':'3306',
     }
 }
